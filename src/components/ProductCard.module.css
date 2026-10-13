@@ -91,3 +91,18 @@
   color: #777;
   text-decoration: line-through;
 }
+
+.link {
+  display: flex;
+  width: 100%;
+  color: inherit;
+}
+
+.link:hover .name {
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px solid #3a4ae0;
+  outline-offset: 2px;
+}

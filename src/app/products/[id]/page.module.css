@@ -1,0 +1,189 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #3a4ae0;
+}
+
+.back:hover {
+  text-decoration: underline;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mainImageWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 420px;
+  background: #f3f3f3;
+  padding: 24px;
+}
+
+.mainImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.thumbs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.thumb {
+  width: 80px;
+  height: 80px;
+  background: #f3f3f3;
+  padding: 8px;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.category {
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #666;
+}
+
+.title {
+  margin-bottom: 12px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stars {
+  position: relative;
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.starsEmpty {
+  color: #d4d4d4;
+}
+
+.starsFilled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #f5a623;
+}
+
+.muted {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.oldPrice {
+  color: #777;
+  text-decoration: line-through;
+}
+
+.discount {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #c0392b;
+}
+
+.description {
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 24px;
+  font-size: 0.9rem;
+}
+
+.details dt {
+  font-weight: 600;
+}
+
+.reviews {
+  margin-top: 56px;
+}
+
+.reviewsTitle {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.reviewList {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+
+.review {
+  padding: 16px 20px;
+  background: #f3f3f3;
+  line-height: 1.5;
+}
+
+.reviewHead {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .mainImageWrap {
+    height: 300px;
+  }
+}
