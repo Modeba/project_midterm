@@ -1,28 +1,19 @@
-async function getProducts() {
-  const res = await fetch("https://dummyjson.com/products");
+import Link from "next/link";
 
-  if (!res.ok) {
-    throw new Error(`Failed to fetch products (status ${res.status})`);
-  }
-
-  const data = await res.json();
-  return data.products;
-}
-
-export default async function Home() {
-  const products = await getProducts();
-
+export default function Home() {
   return (
     <main>
-      <h1>Products</h1>
+      <h1>Welcome</h1>
       <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            <h2>{product.title}</h2>
-            <p>{product.description}</p>
-            <p>${product.price}</p>
-          </li>
-        ))}
+        <li>
+          <Link href="/products">Browse products</Link>
+        </li>
+        <li>
+          <Link href="/profile">View your profile</Link>
+        </li>
+        <li>
+          <Link href="/cart">Open your cart</Link>
+        </li>
       </ul>
     </main>
   );

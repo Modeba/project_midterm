@@ -8,40 +8,32 @@ const icons = {
   home: (
     <path d="M3 11.5 12 4l9 7.5M5.5 10v9.5h13V10M10 19.5v-5h4v5" />
   ),
-  dashboards: (
+  products: (
     <>
-      <rect x="4" y="4" width="16" height="16" rx="1" />
-      <path d="M10 4v16M10 11h10" />
+      <path d="M12 3 20.5 7.5v9L12 21l-8.5-4.5v-9z" />
+      <path d="M3.5 7.5 12 12l8.5-4.5M12 12v9" />
     </>
   ),
-  segments: (
-    <>
-      <circle cx="10" cy="8" r="3.5" />
-      <path d="M3.5 20c0-3.6 2.9-6 6.5-6 1 0 1.9.2 2.7.5" />
-      <circle cx="17.5" cy="17.5" r="3.5" />
-      <path d="M17.5 15.7v3.6M15.7 17.5h3.6" />
-    </>
-  ),
-  account: (
+  profile: (
     <>
       <circle cx="12" cy="8" r="4" />
       <path d="M4.5 20.5c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5z" />
     </>
   ),
-  settings: (
+  cart: (
     <>
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 3l1.6 2.3 2.8-.6.9 2.7 2.7.9-.6 2.8L21 12l-2.3 1.6.6 2.8-2.7.9-.9 2.7-2.8-.6L12 21l-1.6-2.3-2.8.6-.9-2.7-2.7-.9.6-2.8L3 12l2.3-1.6-.6-2.8 2.7-.9.9-2.7 2.8.6z" />
+      <path d="M3 4h2.5l2.2 10.5h10.6L20.5 7H6.2" />
+      <circle cx="9" cy="19" r="1.5" />
+      <circle cx="17" cy="19" r="1.5" />
     </>
   ),
 };
 
 const links = [
   { href: "/", label: "Home", icon: "home" },
-  { href: "/dashboards", label: "Dashboards", icon: "dashboards" },
-  { href: "/segments", label: "Segments", icon: "segments" },
-  { href: "/account", label: "Account", icon: "account" },
-  { href: "/settings", label: "Settings", icon: "settings" },
+  { href: "/products", label: "Products", icon: "products" },
+  { href: "/profile", label: "Profile", icon: "profile" },
+  { href: "/cart", label: "Cart", icon: "cart" },
 ];
 
 export default function NavBar() {
