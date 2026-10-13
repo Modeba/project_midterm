@@ -1,3 +1,6 @@
+import ProductCard from "../../components/ProductCard";
+import styles from "./page.module.css";
+
 async function getProducts() {
   const res = await fetch("https://dummyjson.com/products");
 
@@ -13,14 +16,12 @@ export default async function ProductsPage() {
   const products = await getProducts();
 
   return (
-    <main>
-      <h1>Products</h1>
-      <ul>
+    <main className={styles.page}>
+      <h1 className={styles.title}>Products</h1>
+      <ul className={styles.grid}>
         {products.map((product) => (
           <li key={product.id}>
-            <h2>{product.title}</h2>
-            <p>{product.description}</p>
-            <p>${product.price}</p>
+            <ProductCard product={product} />
           </li>
         ))}
       </ul>

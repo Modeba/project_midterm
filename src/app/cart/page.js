@@ -23,8 +23,6 @@ async function getProductDetails(id) {
 export default async function CartPage() {
   const cart = await getCart();
 
-  // The cart endpoint doesn't include thumbnails reliably, so we load each
-  // product and merge the fields the UI needs.
   const items = await Promise.all(
     cart.products.map(async (item) => {
       const product = await getProductDetails(item.id);
@@ -34,8 +32,6 @@ export default async function CartPage() {
         price: item.price,
         quantity: item.quantity,
         thumbnail: product.thumbnail,
-        // DummyJSON has no color field. If your real data has one
-        // (e.g. { name: "Yellow", hex: "#e8c200" }), pass it here.
         color: null,
       };
     })

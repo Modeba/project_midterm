@@ -1,0 +1,24 @@
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 24px;
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.grid > li {
+  display: flex;
+}
