@@ -20,9 +20,7 @@ export default function Footer() {
             </li>
           ))}
         </ul>
-        <p className={styles.copy}>
-          &copy; {new Date().getFullYear()} Your Company, Inc. or its affiliates
-        </p>
+        <p>&copy; {new Date().getFullYear()} Your Company, Inc. or its affiliates</p>
       </div>
     </footer>
   );

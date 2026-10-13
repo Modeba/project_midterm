@@ -40,62 +40,51 @@ export default function CartList({ initialItems }) {
           </div>
 
           <ul className={styles.list}>
-            {items.map((item) => (
-              <li key={item.id} className={styles.row}>
+            {items.map(({ id, title, price, quantity, thumbnail }) => (
+              <li key={id} className={styles.row}>
                 <div className={styles.product}>
                   <img
                     className={styles.image}
-                    src={item.thumbnail}
-                    alt={item.title}
+                    src={thumbnail}
+                    alt={title}
                     width={96}
                     height={96}
                   />
-                  <div className={styles.info}>
-                    <span className={styles.name}>{item.title}</span>
-                    {item.color && (
-                      <span className={styles.color}>
-                        <span
-                          className={styles.swatch}
-                          style={{ backgroundColor: item.color.hex }}
-                        />
-                        {item.color.name}
-                      </span>
-                    )}
-                  </div>
+                  <span className={styles.name}>{title}</span>
                 </div>
 
                 <div className={styles.quantity}>
                   <button
                     type="button"
                     className={styles.step}
-                    onClick={() => changeQuantity(item.id, -1)}
-                    disabled={item.quantity <= 1}
-                    aria-label={`Decrease quantity of ${item.title}`}
+                    onClick={() => changeQuantity(id, -1)}
+                    disabled={quantity <= 1}
+                    aria-label={`Decrease quantity of ${title}`}
                   >
                     &minus;
                   </button>
                   <span className={styles.count} aria-live="polite">
-                    {item.quantity}
+                    {quantity}
                   </span>
                   <button
                     type="button"
                     className={styles.step}
-                    onClick={() => changeQuantity(item.id, 1)}
-                    aria-label={`Increase quantity of ${item.title}`}
+                    onClick={() => changeQuantity(id, 1)}
+                    aria-label={`Increase quantity of ${title}`}
                   >
                     +
                   </button>
                 </div>
 
                 <span className={`${styles.price} ${styles.center}`}>
-                  {formatPrice(item.price * item.quantity)}
+                  {formatPrice(price * quantity)}
                 </span>
 
                 <button
                   type="button"
                   className={styles.remove}
-                  onClick={() => removeItem(item.id)}
-                  aria-label={`Remove ${item.title} from cart`}
+                  onClick={() => removeItem(id)}
+                  aria-label={`Remove ${title} from cart`}
                 >
                   <svg
                     viewBox="0 0 24 24"

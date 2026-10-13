@@ -10,19 +10,13 @@ async function getUser() {
 
 export default async function ProfilePage() {
   const user = await getUser();
+  const fullName = `${user.firstName} ${user.lastName}`;
 
   return (
     <main>
       <h1>Profile</h1>
-      <img
-        src={user.image}
-        alt={`${user.firstName} ${user.lastName}`}
-        width={96}
-        height={96}
-      />
-      <h2>
-        {user.firstName} {user.lastName}
-      </h2>
+      <img src={user.image} alt={fullName} width={96} height={96} />
+      <h2>{fullName}</h2>
       <p>@{user.username}</p>
       <p>Email: {user.email}</p>
       <p>Phone: {user.phone}</p>

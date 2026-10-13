@@ -21,13 +21,13 @@
 }
 
 .shipping {
-  margin: 0 0 8px;
+  margin-bottom: 8px;
   font-size: 0.7rem;
   color: #666;
 }
 
 .name {
-  margin: 0 0 10px;
+  margin-bottom: 10px;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.3;

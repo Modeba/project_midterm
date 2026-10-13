@@ -8,7 +8,7 @@
   text-align: center;
   font-size: 2rem;
   font-weight: 300;
-  margin: 0 0 56px;
+  margin-bottom: 56px;
 }
 
 .row {
@@ -19,7 +19,7 @@
 }
 
 .head {
-  padding: 0 0 16px;
+  padding-bottom: 16px;
   border-bottom: 1px solid #d9d9d9;
   font-size: 0.75rem;
   letter-spacing: 0.04em;
@@ -29,8 +29,6 @@
 
 .list {
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .list .row {
@@ -55,28 +53,9 @@
   flex-shrink: 0;
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .name {
   font-size: 0.8rem;
   text-decoration: underline;
-}
-
-.color {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.75rem;
-}
-
-.swatch {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
 }
 
 .quantity {
@@ -118,13 +97,13 @@
 }
 
 .remove {
+  display: flex;
+  justify-content: center;
   background: none;
   border: none;
   cursor: pointer;
   color: inherit;
   padding: 4px;
-  display: flex;
-  justify-content: center;
 }
 
 .remove:hover {
@@ -133,7 +112,7 @@
 
 .total {
   text-align: right;
-  margin: 24px 0 0;
+  margin-top: 24px;
   font-size: 1.1rem;
 }
 
