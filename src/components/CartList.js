@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./CartList.module.css";
 
 const formatPrice = (value) => `$${value.toFixed(2)}`;
+const MAX_QUANTITY = 10;
 
 export default function CartList({ initialItems }) {
   const [items, setItems] = useState(initialItems);
@@ -12,7 +13,7 @@ export default function CartList({ initialItems }) {
     setItems((current) =>
       current.map((item) =>
         item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + delta) }
+          ? { ...item, quantity: Math.min(MAX_QUANTITY, Math.max(1, item.quantity + delta)) }
           : item
       )
     );
