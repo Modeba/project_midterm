@@ -1,0 +1,162 @@
+.cart {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0 0 56px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1fr 48px;
+  align-items: center;
+  gap: 16px;
+}
+
+.head {
+  padding: 0 0 16px;
+  border-bottom: 1px solid #d9d9d9;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list .row {
+  padding: 24px 0;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.center {
+  text-align: center;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.image {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name {
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+.color {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+}
+
+.swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.step {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+  padding: 4px 6px;
+}
+
+.step:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  font-size: 1.4rem;
+}
+
+.price {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.remove:hover {
+  color: #c0392b;
+}
+
+.total {
+  text-align: right;
+  margin: 24px 0 0;
+  font-size: 1.1rem;
+}
+
+.empty {
+  text-align: center;
+  color: #555;
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr auto;
+    row-gap: 12px;
+  }
+
+  .head {
+    display: none;
+  }
+
+  .product {
+    grid-column: 1 / -1;
+  }
+
+  .center {
+    text-align: right;
+  }
+}
