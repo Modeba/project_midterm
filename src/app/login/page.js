@@ -121,6 +121,9 @@ export default function LoginPage() {
           </fieldset>
         </form>
 
+        <p className={styles.accountLink}>
+          New here? <Link href="/register">Create an account</Link>
+        </p>
         <div className={styles.demoAccount}>
           <h2>Try a demo account</h2>
           <p>Username: <code>emilys</code></p>

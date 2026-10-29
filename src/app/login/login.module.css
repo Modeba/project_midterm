@@ -135,7 +135,8 @@
 .field input:focus-visible,
 .rememberMe input:focus-visible,
 .submitButton:focus-visible,
-.backLink:focus-visible {
+.backLink:focus-visible,
+.accountLink a:focus-visible {
   outline: 2px solid #2563eb;
   outline-offset: 3px;
 }
@@ -148,6 +149,59 @@
   color: #b91c1c;
   font-size: 14px;
   line-height: 1.5;
+}
+
+.registrationGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.registrationGrid .field {
+  grid-column: 1 / -1;
+}
+
+.registrationGrid .nameField {
+  grid-column: auto;
+}
+
+.fieldHint {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.notice,
+.success {
+  margin-bottom: 24px;
+  padding: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.success {
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.accountLink {
+  margin: 24px 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.accountLink a {
+  color: #334155;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .demoAccount {
@@ -189,5 +243,9 @@
 
   .loginCard {
     padding: 24px;
+  }
+
+  .registrationGrid {
+    grid-template-columns: 1fr;
   }
 }
