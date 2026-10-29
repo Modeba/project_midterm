@@ -1,3 +1,32 @@
+.productsHeader {
+  margin: clamp(24px, 4vw, 40px) 20px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.productsTitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.productCount {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #525252;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+
 .page {
   --background: #fafafa;
   --foreground: #fff;
