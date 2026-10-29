@@ -81,6 +81,11 @@ a {
   margin-top: 10px;
 }
 
+/* Main content */
+.main-content {
+  flex: 1;
+}
+
 /* NavBar */
 .navbar {
   display: flex;
