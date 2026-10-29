@@ -10,6 +10,7 @@
 
 .cartItem {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 20px;
   padding: 20px;
@@ -33,9 +34,27 @@
   font-size: 18px;
 }
 
+.quantityControl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.quantityControl select {
+  padding: 6px 10px;
+  font: inherit;
+}
+
 .removeButton {
   padding: 10px 15px;
   border: none;
   background: #ddd;
   cursor: pointer;
+}
+
+.cartTotal {
+  margin-top: 25px;
+  font-size: 22px;
+  font-weight: bold;
 }

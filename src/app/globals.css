@@ -81,6 +81,32 @@ a {
   margin-top: 10px;
 }
 
+.add-to-cart-button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background: #171717;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.add-to-cart-button:hover {
+  background: #383838;
+}
+
+.add-to-cart-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.product-card .cart-status {
+  min-height: 1.25em;
+  font-size: 14px;
+  font-weight: normal;
+}
+
 /* Main content */
 .main-content {
   flex: 1;
