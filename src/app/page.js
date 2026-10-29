@@ -1,31 +1,33 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { fetchProducts } from "../components/products";
+import ProductCard from "../components/productCard";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    async function fetchProducts() {
-      const response = await fetch("https://fakestoreapi.com/products");
-      const data = await response.json();
+    async function loadProducts() {
+      const data = await fetchProducts();
       setProducts(data);
     }
 
-    fetchProducts();
+    loadProducts();
   }, []);
 
   return (
     <div>
       <h1>Products ({products.length})</h1>
 
-      <ul>
+      <div>
         {products.map((product) => (
-          <li key={product.id}>
-            {product.title} - ${product.price}
-          </li>
+          <ProductCard
+            key={product.id}
+            product={product}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
