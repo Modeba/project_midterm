@@ -19,10 +19,14 @@ export default function CartPage() {
         <>
           {cartItems.map((product) => (
             <div key={product.id} className={styles.cartItem}>
-              <img src={product.image} alt={product.title} />
+              <Link href={`/products/${product.id}`}>
+                <img src={product.image} alt={product.title} />
+              </Link>
 
               <div className={styles.cartItemInfo}>
-                <h2>{product.title}</h2>
+                <h2>
+                  <Link href={`/products/${product.id}`}>{product.title}</Link>
+                </h2>
                 <p>Price: ${product.price.toFixed(2)}</p>
                 <label className={styles.quantityControl}>
                   Quantity:
