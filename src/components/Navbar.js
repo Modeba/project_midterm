@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { usePathname } from "next/navigation";
-import { useCart } from "../context/CartContext";
+import { useSelector } from "react-redux";
+import { selectCartCount } from "../store/cartSlice";
 import { useAuth } from "../context/AuthContext";
 
 function NavbarContent({ pathname }) {
-  const { cartCount } = useCart();
+  const cartCount = useSelector(selectCartCount);
   const { user } = useAuth();
   const isProductsActive = pathname === "/" || pathname?.startsWith("/products/");
 

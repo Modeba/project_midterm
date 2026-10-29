@@ -1,11 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { MAX_CART_QUANTITY, useCart } from "../../context/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  MAX_CART_QUANTITY,
+  removeFromCart,
+  updateQuantity,
+  selectCartItems,
+  selectCartCount,
+  selectCartTotal,
+} from "../../store/cartSlice";
 import styles from "./cart.module.css";
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, updateQuantity, cartCount, cartTotal } = useCart();
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+  const cartCount = useSelector(selectCartCount);
+  const cartTotal = useSelector(selectCartTotal);
 
   return (
     <div className={styles.cartPage}>
@@ -39,7 +50,10 @@ export default function CartPage() {
                     <select
                       value={product.quantity}
                       onChange={(event) =>
-                        updateQuantity(product.id, Number(event.target.value))
+                        dispatch(updateQuantity({
+                          productId: product.id,
+                          quantity: Number(event.target.value),
+                        }))
                       }
                       aria-label={`Quantity for ${product.title}`}
                     >
@@ -60,7 +74,7 @@ export default function CartPage() {
                   <button
                     type="button"
                     className={styles.removeButton}
-                    onClick={() => removeFromCart(product.id)}
+                    onClick={() => dispatch(removeFromCart(product.id))}
                     aria-label={`Remove ${product.title} from cart`}
                   >
                     Remove

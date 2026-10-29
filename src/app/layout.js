@@ -1,8 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { CartProvider } from "../context/CartContext";
+import StoreProvider from "../store/StoreProvider";
 import { AuthProvider } from "../context/AuthContext";
 
 const geistSans = Geist({
@@ -25,15 +26,17 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
         <AuthProvider>
-          <CartProvider>
-            <Navbar />
+          <Suspense fallback={<p role="status">Loading...</p>}>
+            <StoreProvider>
+              <Navbar />
 
-            <main className="main-content">
-              {children}
-            </main>
+              <main className="main-content">
+                {children}
+              </main>
 
-            <Footer />
-          </CartProvider>
+              <Footer />
+            </StoreProvider>
+          </Suspense>
         </AuthProvider>
       </body>
       

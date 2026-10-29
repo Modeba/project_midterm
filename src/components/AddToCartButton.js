@@ -1,10 +1,13 @@
 "use client";
 
-import { MAX_CART_QUANTITY, useCart } from "../context/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, MAX_CART_QUANTITY, selectCartItems } from "../store/cartSlice";
 
 export default function AddToCartButton({ product }) {
-  const { addToCart, cartItems } = useCart();
-  const cartItem = cartItems.find((item) => item.id === product.id);
+  const dispatch = useDispatch();
+  const cartItem = useSelector((state) =>
+    selectCartItems(state).find((item) => item.id === product.id)
+  );
   const isAtLimit = cartItem?.quantity >= MAX_CART_QUANTITY;
 
   return (
@@ -12,7 +15,7 @@ export default function AddToCartButton({ product }) {
       <button
         type="button"
         className="add-to-cart-button"
-        onClick={() => addToCart(product)}
+        onClick={() => dispatch(addToCart(product))}
         disabled={isAtLimit}
       >
         {isAtLimit ? `Limit reached (${MAX_CART_QUANTITY})` : "Add to cart"}
