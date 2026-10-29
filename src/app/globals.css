@@ -81,6 +81,19 @@ a {
   margin-top: 10px;
 }
 
+/* NavBar */
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: #f3f3f3be;
+  padding: 20px 0;
+
+  font-family: 'Gill Sans';
+  font-size: 20px;
+}
+
 /* Footer */
 footer {
   display: flex;
@@ -90,7 +103,7 @@ footer {
   margin-top: 40px;
   padding: 30px 8%;
 
-  background: #f3f3f3;
+  background: #f3f3f3be;
   font-size: 14px;
 }
 

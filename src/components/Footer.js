@@ -7,7 +7,7 @@ export default function Footer() {
         <a href="#">Interest-Based Ads</a>
       </div>
 
-      <p>© 1996-2021, Amazon.com, Inc. or its affiliates</p>
+      <p>© 2026 My Project Store</p>
     </footer>
   );
 }

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../components/Products";
 import ProductCard from "../components/ProductCard";
-import Footer from "../components/Footer";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -29,9 +28,6 @@ export default function Home() {
           />
         ))}
       </div>
-      
-      <Footer />
-
     </div>
   );
 }
