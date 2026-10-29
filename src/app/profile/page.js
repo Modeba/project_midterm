@@ -1,20 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { fetchUser } from "../../services/users";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../../context/AuthContext";
 import styles from "./profile.module.css";
 
 export default function ProfilePage() {
-  const [user, setUser] = useState(null);
+  const { user, isLoading, logout } = useAuth();
+  const router = useRouter();
 
   useEffect(() => {
-    async function loadUser() {
-      const data = await fetchUser();
-      setUser(data);
+    if (!isLoading && !user) {
+      router.replace("/login");
     }
-
-    loadUser();
-  }, []);
+  }, [isLoading, user, router]);
 
   return (
     <div className={styles.profile}>
@@ -23,18 +22,23 @@ export default function ProfilePage() {
         <p>Your account details and delivery address.</p>
       </header>
 
-      {!user ? (
-        <p className={styles.loading} role="status">Loading profile...</p>
+      {isLoading || !user ? (
+        <p className={styles.loading} role="status">
+          {isLoading ? "Loading profile..." : "Opening login..."}
+        </p>
       ) : (
         <>
           <div className={styles.accountCard}>
             <div className={styles.avatar} aria-hidden="true">
-              {user.name.firstname.charAt(0)}{user.name.lastname.charAt(0)}
+              {user.firstName.charAt(0)}{user.lastName.charAt(0)}
             </div>
             <div>
-              <h2 className={styles.name}>{user.name.firstname} {user.name.lastname}</h2>
+              <h2 className={styles.name}>{user.firstName} {user.lastName}</h2>
               <p className={styles.username}>@{user.username}</p>
             </div>
+            <button type="button" className={styles.logoutButton} onClick={logout}>
+              Log out
+            </button>
           </div>
 
           <div className={styles.detailsGrid}>
@@ -43,7 +47,7 @@ export default function ProfilePage() {
               <dl className={styles.detailsList}>
                 <div>
                   <dt>Name</dt>
-                  <dd className={styles.name}>{user.name.firstname} {user.name.lastname}</dd>
+                  <dd className={styles.name}>{user.firstName} {user.lastName}</dd>
                 </div>
                 <div>
                   <dt>Username</dt>
@@ -65,7 +69,7 @@ export default function ProfilePage() {
               <dl className={styles.detailsList}>
                 <div>
                   <dt>Street</dt>
-                  <dd className={styles.name}>{user.address.number} {user.address.street}</dd>
+                  <dd className={styles.name}>{user.address.address}</dd>
                 </div>
                 <div>
                   <dt>City</dt>
@@ -73,7 +77,7 @@ export default function ProfilePage() {
                 </div>
                 <div>
                   <dt>ZIP code</dt>
-                  <dd>{user.address.zipcode}</dd>
+                  <dd>{user.address.postalCode}</dd>
                 </div>
               </dl>
             </section>

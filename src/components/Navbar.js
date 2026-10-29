@@ -4,9 +4,11 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { usePathname } from "next/navigation";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 
 function NavbarContent({ pathname }) {
   const { cartCount } = useCart();
+  const { user } = useAuth();
   const isProductsActive = pathname === "/" || pathname?.startsWith("/products/");
 
   return (
@@ -19,11 +21,11 @@ function NavbarContent({ pathname }) {
         Products
       </Link>
       <Link
-        href="/profile"
+        href={user ? "/profile" : "/login"}
         className="navbar-link"
-        aria-current={pathname === "/profile" ? "page" : undefined}
+        aria-current={pathname === (user ? "/profile" : "/login") ? "page" : undefined}
       >
-        Profile
+        {user ? "Profile" : "Log in"}
       </Link>
       <Link
         href="/cart"
