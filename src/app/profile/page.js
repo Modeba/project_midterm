@@ -16,30 +16,70 @@ export default function ProfilePage() {
     loadUser();
   }, []);
 
-  if (!user) {
-    return <p>Loading...</p>;
-  }
-
   return (
     <div className={styles.profile}>
-        <h1>Profile</h1>
+      <header className={styles.pageHeader}>
+        <h1>Your profile</h1>
+        <p>Your account details and delivery address.</p>
+      </header>
 
-        <p>
-        Name: {user.name.firstname} {user.name.lastname}
-        </p>
+      {!user ? (
+        <p className={styles.loading} role="status">Loading profile...</p>
+      ) : (
+        <>
+          <div className={styles.accountCard}>
+            <div className={styles.avatar} aria-hidden="true">
+              {user.name.firstname.charAt(0)}{user.name.lastname.charAt(0)}
+            </div>
+            <div>
+              <h2 className={styles.name}>{user.name.firstname} {user.name.lastname}</h2>
+              <p className={styles.username}>@{user.username}</p>
+            </div>
+          </div>
 
-        <p>Username: {user.username}</p>
-        <p>Email: {user.email}</p>
-        <p>Phone: {user.phone}</p>
+          <div className={styles.detailsGrid}>
+            <section className={styles.detailsCard} aria-labelledby="personal-details">
+              <h2 id="personal-details">Personal details</h2>
+              <dl className={styles.detailsList}>
+                <div>
+                  <dt>Name</dt>
+                  <dd className={styles.name}>{user.name.firstname} {user.name.lastname}</dd>
+                </div>
+                <div>
+                  <dt>Username</dt>
+                  <dd>{user.username}</dd>
+                </div>
+                <div>
+                  <dt>Email</dt>
+                  <dd><a href={`mailto:${user.email}`}>{user.email}</a></dd>
+                </div>
+                <div>
+                  <dt>Phone</dt>
+                  <dd><a href={`tel:${user.phone}`}>{user.phone}</a></dd>
+                </div>
+              </dl>
+            </section>
 
-        <h2>Address</h2>
-
-        <p>
-        {user.address.number} {user.address.street}
-        </p>
-
-        <p>{user.address.city}</p>
-        <p>{user.address.zipcode}</p>
+            <section className={styles.detailsCard} aria-labelledby="delivery-address">
+              <h2 id="delivery-address">Delivery address</h2>
+              <dl className={styles.detailsList}>
+                <div>
+                  <dt>Street</dt>
+                  <dd className={styles.name}>{user.address.number} {user.address.street}</dd>
+                </div>
+                <div>
+                  <dt>City</dt>
+                  <dd className={styles.name}>{user.address.city}</dd>
+                </div>
+                <div>
+                  <dt>ZIP code</dt>
+                  <dd>{user.address.zipcode}</dd>
+                </div>
+              </dl>
+            </section>
+          </div>
+        </>
+      )}
     </div>
-    );
+  );
 }
