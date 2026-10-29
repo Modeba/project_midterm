@@ -20,7 +20,7 @@ export default function Home() {
     <div>
       <h1>Products ({products.length})</h1>
 
-      <div>
+      <div className="product-list">
         {products.map((product) => (
           <ProductCard
             key={product.id}

@@ -1,9 +1,11 @@
+/* existing Next.js/global CSS */
+
 :root {
-  --background: #ffffff;
+  --background: #F5E9DC;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+@media {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -42,8 +44,41 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+@media {
   html {
     color-scheme: dark;
   }
+}
+
+/* Added styles */
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  background-color: #a7a7a7;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.product-card h2 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.product-card p {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
 }
