@@ -15,7 +15,7 @@ export default function AddToCartButton({ product }) {
         onClick={() => addToCart(product)}
         disabled={isAtLimit}
       >
-        {isAtLimit ? "Maximum quantity reached" : "Add to cart"}
+        {isAtLimit ? `Limit reached (${MAX_CART_QUANTITY})` : "Add to cart"}
       </button>
       <p role="status" className="cart-status">
         {cartItem ? `${cartItem.quantity} in cart` : ""}
